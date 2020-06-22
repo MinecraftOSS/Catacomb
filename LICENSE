@@ -1,0 +1,4 @@
+Catacomb is licensed under the MIT license. However, as catacomb-bukkit and
+catacomb-bukkit-api link to Bukkit, these components are also subject to the
+terms of the GNU General Public License v3. The text of both licenses can be
+found under the LICENSES directory.

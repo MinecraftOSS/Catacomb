@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    api project(':catacomb-common-api')
+    api 'org.bukkit:bukkit:1.15.2-R0.1-SNAPSHOT'
+}
+
+shadowJar {
+    dependencies {
+        include(project(':catacomb-common-api'))
+    }
+}

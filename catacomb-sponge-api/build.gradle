@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    maven {
+        name = 'sponge-repo'
+        url = 'https://repo.spongepowered.org/maven'
+    }
+}
+
+dependencies {
+    api project(':catacomb-common-api')
+    api 'org.spongepowered:spongeapi:7.2.0'
+}
+
+shadowJar {
+    dependencies {
+        include(project(':catacomb-common-api'))
+    }
+}

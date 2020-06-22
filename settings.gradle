@@ -1,0 +1,3 @@
+rootProject.name = 'catacomb'
+
+include 'catacomb-common-api', 'catacomb-bukkit-api', 'catacomb-bukkit', 'catacomb-sponge-api', 'catacomb-sponge'
