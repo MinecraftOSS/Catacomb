@@ -99,7 +99,7 @@ public interface Account {
             @Override
             public TransactionResult transfer(Account to, Currency currency, BigDecimal amount,
                                                    TransactionCondition condition, Set<AccountContext> contexts) {
-                Transaction transaction = to.getTransactionHandler().createTransaction(this, to, currency, amount, contexts);
+                Transaction transaction = Transaction.of(this, to, currency, amount, contexts);
                 return to.getTransactionHandler().handle(transaction, condition);
             }
 
