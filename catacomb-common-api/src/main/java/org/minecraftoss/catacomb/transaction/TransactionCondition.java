@@ -15,7 +15,7 @@ public interface TransactionCondition extends Predicate<Transaction> {
     static TransactionCondition allOf(Iterable<? extends TransactionCondition> conditions) {
         return transaction -> {
             for (TransactionCondition condition : conditions) {
-                if (!condition.passes(transaction)) {
+                if (!condition.isFulfilled(transaction)) {
                     return false;
                 }
             }
@@ -26,7 +26,7 @@ public interface TransactionCondition extends Predicate<Transaction> {
     static TransactionCondition anyOf(Iterable<? extends TransactionCondition> conditions) {
         return transaction -> {
             for (TransactionCondition condition : conditions) {
-                if (condition.passes(transaction)) {
+                if (condition.isFulfilled(transaction)) {
                     return true;
                 }
             }
@@ -42,26 +42,26 @@ public interface TransactionCondition extends Predicate<Transaction> {
         return transaction -> false;
     }
 
-    boolean passes(Transaction transaction);
+    boolean isFulfilled(Transaction transaction);
 
     @Override
     default boolean test(Transaction transaction) {
-        return passes(transaction);
+        return isFulfilled(transaction);
     }
 
     default TransactionCondition negate() {
-        return transaction -> !passes(transaction);
+        return transaction -> !isFulfilled(transaction);
     }
 
     default TransactionCondition and(TransactionCondition other) {
-        return transaction -> passes(transaction) && other.passes(transaction);
+        return transaction -> isFulfilled(transaction) && other.isFulfilled(transaction);
     }
 
     default TransactionCondition or(TransactionCondition other) {
-        return transaction -> passes(transaction) || other.passes(transaction);
+        return transaction -> isFulfilled(transaction) || other.isFulfilled(transaction);
     }
 
     default TransactionCondition xor(TransactionCondition other) {
-        return transaction -> passes(transaction) ^ other.passes(transaction);
+        return transaction -> isFulfilled(transaction) ^ other.isFulfilled(transaction);
     }
 }
