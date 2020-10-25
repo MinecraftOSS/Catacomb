@@ -13,4 +13,12 @@ public interface AccountContext {
     Currency getDefaultCurrency();
 
     Set<TransactionContext> getDefaultContexts();
+
+    // TODO better name?
+    /**
+     * The account that is used for withdraw/deposit transactions as target/source.
+     *
+     * @return an infinite account.
+     */
+    Account getInfiniteAccount();
 }

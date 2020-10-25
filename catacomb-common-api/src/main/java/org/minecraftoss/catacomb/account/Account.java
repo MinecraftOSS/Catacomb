@@ -84,7 +84,7 @@ public interface Account {
     // withdraw
 
     default TransactionResult withdraw(Currency currency, BigDecimal amount, TransactionCondition condition, Set<TransactionContext> contexts) {
-        return transfer(infiniteAccount(), currency, amount, condition, contexts);
+        return transfer(getAccountContext().getInfiniteAccount(), currency, amount, condition, contexts);
     }
 
     default TransactionResult withdraw(BigDecimal amount, TransactionCondition condition, Set<TransactionContext> contexts) {
@@ -118,7 +118,7 @@ public interface Account {
     // deposit
 
     default TransactionResult deposit(Currency currency, BigDecimal amount, TransactionCondition condition, Set<TransactionContext> contexts) {
-        return infiniteAccount().transfer(this, currency, amount, condition, contexts);
+        return getAccountContext().getInfiniteAccount().transfer(this, currency, amount, condition, contexts);
     }
 
     default TransactionResult deposit(BigDecimal amount, TransactionCondition condition, Set<TransactionContext> contexts) {
@@ -161,8 +161,4 @@ public interface Account {
      * @return the context of this account.
      */
     AccountContext getAccountContext();
-
-    static Account infiniteAccount() {
-        return InfiniteAccount.INSTANCE;
-    }
 }
