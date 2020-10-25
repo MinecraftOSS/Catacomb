@@ -1,6 +1,9 @@
-package org.minecraftoss.catacomb.transaction;
+package org.minecraftoss.catacomb;
 
 import org.minecraftoss.catacomb.currency.Currency;
+import org.minecraftoss.catacomb.transaction.Transaction;
+import org.minecraftoss.catacomb.transaction.TransactionCondition;
+import org.minecraftoss.catacomb.transaction.TransactionContext;
 import org.minecraftoss.catacomb.transaction.result.TransactionResult;
 
 import java.math.BigDecimal;

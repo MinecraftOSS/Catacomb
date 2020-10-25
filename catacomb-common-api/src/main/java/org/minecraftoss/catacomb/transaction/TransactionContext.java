@@ -1,5 +1,12 @@
 package org.minecraftoss.catacomb.transaction;
 
 public interface TransactionContext {
-    // TODO
+
+    static TransactionContext of(String key, String value) {
+        return new TransactionContextImpl(key, value);
+    }
+
+    String getKey();
+
+    String getValue();
 }

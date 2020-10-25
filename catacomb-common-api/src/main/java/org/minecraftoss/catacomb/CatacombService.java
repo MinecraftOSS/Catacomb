@@ -1,7 +1,6 @@
 package org.minecraftoss.catacomb;
 
 import org.minecraftoss.catacomb.account.AccountManager;
-import org.minecraftoss.catacomb.transaction.EconomyManager;
 
 import java.util.Set;
 
