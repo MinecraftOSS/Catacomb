@@ -1,4 +1,6 @@
-package org.minecraftoss.catacomb.transaction;
+package org.minecraftoss.catacomb.transaction.result;
+
+import org.minecraftoss.catacomb.transaction.Transaction;
 
 public class TransactionResult {
     private final TransactionResultState<?> transactionResultState;

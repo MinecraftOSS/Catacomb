@@ -1,8 +1,8 @@
 package org.minecraftoss.catacomb.account;
 
-import java.util.UUID;
+import org.minecraftoss.catacomb.account.request.RequestContext;
 
 public interface AccountManager {
 
-    Account getAccount(UUID uuid);
+    Account getAccount(RequestContext context);
 }

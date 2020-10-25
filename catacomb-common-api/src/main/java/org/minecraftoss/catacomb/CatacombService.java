@@ -1,8 +1,7 @@
 package org.minecraftoss.catacomb;
 
 import org.minecraftoss.catacomb.account.AccountManager;
-import org.minecraftoss.catacomb.currency.CurrencyManager;
-import org.minecraftoss.catacomb.transaction.TransactionManager;
+import org.minecraftoss.catacomb.transaction.EconomyManager;
 
 import java.util.Set;
 
@@ -21,9 +20,7 @@ public interface CatacombService {
         return true;
     }
 
-    CurrencyManager getCurrencyManager();
-
-    TransactionManager getTransactionManager();
+    EconomyManager getEconomyManager();
 
     AccountManager getAccountManager();
 }

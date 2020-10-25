@@ -2,20 +2,19 @@ package org.minecraftoss.catacomb.transaction;
 
 import org.minecraftoss.catacomb.currency.Currency;
 import org.minecraftoss.catacomb.account.Account;
-import org.minecraftoss.catacomb.account.AccountContext;
 
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Set;
 
-public class TransactionImpl implements Transaction {
+class TransactionImpl implements Transaction {
     private final Account accountFrom;
     private final Account accountTo;
     private final Currency currency;
     private final BigDecimal amount;
-    private final Set<AccountContext> contexts;
+    private final Set<TransactionContext> contexts;
 
-    public TransactionImpl(Account accountFrom, Account accountTo, Currency currency, BigDecimal amount, Set<AccountContext> contexts) {
+    TransactionImpl(Account accountFrom, Account accountTo, Currency currency, BigDecimal amount, Set<TransactionContext> contexts) {
         this.accountFrom = accountFrom;
         this.accountTo = accountTo;
         this.currency = currency;
@@ -44,7 +43,7 @@ public class TransactionImpl implements Transaction {
     }
 
     @Override
-    public Set<AccountContext> getContexts() {
+    public Set<TransactionContext> getContexts() {
         return this.contexts;
     }
 }
