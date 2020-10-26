@@ -46,4 +46,28 @@ class TransactionImpl implements Transaction {
     public Set<TransactionContext> getContexts() {
         return this.contexts;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TransactionImpl)) return false;
+
+        TransactionImpl that = (TransactionImpl) o;
+
+        if (!accountFrom.equals(that.accountFrom)) return false;
+        if (!accountTo.equals(that.accountTo)) return false;
+        if (!currency.equals(that.currency)) return false;
+        if (!amount.equals(that.amount)) return false;
+        return contexts.equals(that.contexts);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountFrom.hashCode();
+        result = 31 * result + accountTo.hashCode();
+        result = 31 * result + currency.hashCode();
+        result = 31 * result + amount.hashCode();
+        result = 31 * result + contexts.hashCode();
+        return result;
+    }
 }

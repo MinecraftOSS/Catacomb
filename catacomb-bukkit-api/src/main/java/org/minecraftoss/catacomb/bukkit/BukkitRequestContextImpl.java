@@ -18,4 +18,22 @@ class BukkitRequestContextImpl extends RequestContextImpl implements BukkitReque
     public Plugin getRequestIdentifier() {
         return this.requestIdentifier;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BukkitRequestContextImpl)) return false;
+        if (!super.equals(o)) return false;
+
+        BukkitRequestContextImpl that = (BukkitRequestContextImpl) o;
+
+        return requestIdentifier.equals(that.requestIdentifier);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + requestIdentifier.hashCode();
+        return result;
+    }
 }

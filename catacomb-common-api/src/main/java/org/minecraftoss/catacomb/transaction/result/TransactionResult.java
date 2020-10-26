@@ -24,4 +24,23 @@ public class TransactionResult {
     }
 
     // TODO track changes?
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TransactionResult)) return false;
+
+        TransactionResult that = (TransactionResult) o;
+
+        if (!transactionResultState.equals(that.transactionResultState)) return false;
+        return transaction.equals(that.transaction);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = transactionResultState.hashCode();
+        result = 31 * result + transaction.hashCode();
+        return result;
+    }
 }

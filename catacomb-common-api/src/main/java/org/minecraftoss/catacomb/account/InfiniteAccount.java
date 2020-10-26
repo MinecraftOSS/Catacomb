@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 import java.util.UUID;
 
-enum InfiniteAccount implements Account {
+public enum InfiniteAccount implements Account {
     INSTANCE;
 
     // TODO

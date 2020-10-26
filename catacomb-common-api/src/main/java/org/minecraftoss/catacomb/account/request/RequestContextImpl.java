@@ -21,4 +21,22 @@ public class RequestContextImpl implements RequestContext {
     public String getRequesterIdentifier() {
         return this.requestIdentifier;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RequestContextImpl)) return false;
+
+        RequestContextImpl that = (RequestContextImpl) o;
+
+        if (!accountIdentifier.equals(that.accountIdentifier)) return false;
+        return requestIdentifier.equals(that.requestIdentifier);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountIdentifier.hashCode();
+        result = 31 * result + requestIdentifier.hashCode();
+        return result;
+    }
 }
