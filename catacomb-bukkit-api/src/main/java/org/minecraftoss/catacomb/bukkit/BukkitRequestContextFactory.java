@@ -14,7 +14,7 @@ public class BukkitRequestContextFactory implements RequestContextFactory {
         this.plugin = plugin;
     }
 
-    static BukkitRequestContextFactory forPlugin(Plugin plugin) {
+    public static BukkitRequestContextFactory forPlugin(Plugin plugin) {
         return new BukkitRequestContextFactory(plugin);
     }
 

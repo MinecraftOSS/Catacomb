@@ -9,8 +9,12 @@ import java.util.UUID;
 public class SpongeRequestContextFactory implements RequestContextFactory {
     private final PluginContainer plugin;
 
-    public SpongeRequestContextFactory(PluginContainer plugin) {
+    SpongeRequestContextFactory(PluginContainer plugin) {
         this.plugin = plugin;
+    }
+
+    static SpongeRequestContextFactory forPlugin(PluginContainer plugin) {
+        return new SpongeRequestContextFactory(plugin);
     }
 
     @Override
