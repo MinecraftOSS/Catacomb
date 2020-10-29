@@ -1,6 +1,6 @@
 name: Catacomb
 version: @version@
-main: org.mincraftoss.catacomb.CatacombBukkit
+main: org.minecraftoss.catacomb.CatacombBukkit
 api-version: 1.13
 authors: [mbaxter, md678685]
 description: Totally not a replacement for Vault
